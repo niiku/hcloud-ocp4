@@ -1,0 +1,48 @@
+# Hetzner Cloud API Token
+# https://console.hetzner.cloud/
+# Select Project > Access > API Tokens > Generate API Token
+hcloud_token = "<paste-token>"
+
+# CloudFlare API Token
+# https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-Cloudflare-API-key-
+cf_email = "<cloudflare-email>"
+cf_token = "<paste-token>"
+
+# Public Key to access OCP4 nodes
+public_key_path = "~/.ssh/id_rsa.pub"
+private_key_path = "~/.ssh/id_rsa"
+
+# OCP4 Domain
+base_domain = "<base-domain>"
+cluster_name = "ocp"
+
+# Region
+# Possible values:
+# nbg1 - Nuremberg, Germany
+# fsn1 - Falkenstein, Germany
+# hel1 - Helsinki, Finland
+# Check availability here: https://console.hetzner.cloud > Select Project > Servers > Add Server
+# Verify that the requested server types are available by selecting them. Sometimes servers with NVME SSDs aren't available.
+region = "fsn1"
+
+# Server types
+# Remove '-ceph' to use servers with NVME SSDs
+# Server with CEPH storage can be migrated when the underlying host fails, but might have slower access times.
+ignition_server_type = "cx11-ceph"
+lb_server_type = "cx11-ceph"
+master_server_type = "cx21-ceph"
+worker_server_type = "cx21-ceph"
+
+# Instance count
+master_count = 3 # must be 3 or 5
+worker_count = 3 # must be at least 1
+
+# OpenShift installer directory - needs to end with a "/"
+openshift_installer_dir = "~/ocp4/installer/"
+
+# RedHat CoreOS installer files
+# https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/
+rhcos_installer_initramfs = "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.1/4.1.0/rhcos-4.1.0-x86_64-installer-initramfs.img"
+rhcos_installer_kernel = "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.1/4.1.0/rhcos-4.1.0-x86_64-installer-kernel"
+rhcos_metal_bios = "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.1/4.1.0/rhcos-4.1.0-x86_64-metal-bios.raw.gz"
+
