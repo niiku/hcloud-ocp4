@@ -5,3 +5,4 @@ terraform.tfvars
 id_rsa
 install-config.yaml
 .idea/
+.cluster.tfstate.lock.info
