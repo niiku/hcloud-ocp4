@@ -52,7 +52,7 @@ frontend openshift-api-server
 backend openshift-api-server
     balance source
     mode tcp
-    server bootstrap ${bootstrap_hostname}.sh:6443 check
+    server bootstrap ${bootstrap_hostname}:6443 check
 %{ for index, hostname in split(",", master_hostnames) ~}
     server master${index} ${hostname}:6443 check
 %{ endfor ~}
@@ -66,7 +66,7 @@ frontend machine-config-server
 backend machine-config-server
     balance source
     mode tcp
-    server bootstrap ${bootstrap_hostname}.sh:22623 check
+    server bootstrap ${bootstrap_hostname}:22623 check
 %{ for index, hostname in split(",", master_hostnames) ~}
     server master${index} ${hostname}:22623 check
 %{ endfor ~}
